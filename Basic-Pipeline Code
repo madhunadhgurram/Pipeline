@@ -1,0 +1,34 @@
+pipleline {
+    agent any
+    stages {
+      stage ('code') {
+        steps {
+          git: 'copy-paste-github-repository-url'
+        }
+      }
+      stage ('build') {
+        steps {
+          sh 'mvn compile'
+        }
+      }
+      stage ('test') {
+        steps {
+          sh 'mvn test'
+        }
+      }
+      stage ('artifact') {
+        steps {
+          sh 'mvn clean package'
+        }
+      }
+    stage ('deploy') {
+        input {
+          message "is your inputs correct ?"
+                ok "yes"
+        }
+        steps {
+          echo "my code is deployed"
+        }
+    }
+    }
+}
