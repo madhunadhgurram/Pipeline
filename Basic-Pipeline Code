@@ -22,7 +22,7 @@ pipleline {
         }
       }
     stage ('deploy') {
-        input {
+        input { 
           message "is your inputs correct ?"
                 ok "yes"
         }
